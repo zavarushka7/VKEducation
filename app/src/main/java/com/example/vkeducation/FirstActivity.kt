@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.vkeducation.databinding.ActivityFirstBinding
 
 
-
 class FirstActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFirstBinding
@@ -25,8 +24,9 @@ class FirstActivity : AppCompatActivity() {
         }
         binding.callFriendBtn.setOnClickListener {
             val phoneNumber = binding.plainTextInput.text.toString().trim()
-            if (!isValidPhone(phoneNumber)){
-                Toast.makeText(this, "Введен неправильный номер телефона", Toast.LENGTH_SHORT).show()
+            if (!isValidPhone(phoneNumber)) {
+                Toast.makeText(this, "Введен неправильный номер телефона", Toast.LENGTH_SHORT)
+                    .show()
                 return@setOnClickListener
             }
             val intent = Intent(Intent.ACTION_DIAL).apply {
@@ -36,11 +36,22 @@ class FirstActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
+
+        binding.shareTextBtn.setOnClickListener {
+            val intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, binding.plainTextInput.text.toString())
+                type = "text/plain"
+            }
+            val shareIntent = Intent.createChooser(intent, null)
+            startActivity(shareIntent)
+        }
     }
 
 
 }
+
 private fun isValidPhone(phone: String): Boolean {
-    val regex = Regex("^8\\d{10}$|^[+]?7\\d{10}$")  // Только 8xxx и +7xxx
+    val regex = Regex("^8\\d{10}$|^[+]?7\\d{10}$")
     return regex.matches(phone)
 }
