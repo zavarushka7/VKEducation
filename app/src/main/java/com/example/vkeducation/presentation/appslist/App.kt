@@ -1,4 +1,4 @@
-package com.example.vkeducation.presentation
+package com.example.vkeducation.presentation.appslist
 
 data class App(
     val id: String,

@@ -1,4 +1,4 @@
-package com.example.vkeducation
+package com.example.vkeducation.presentation.appslist
 
 
 import androidx.compose.foundation.layout.Column
@@ -22,12 +22,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.example.vkeducation.presentation.App
 import io.mmaltsev.vkeducation.ui.theme.VkEducationTheme
 
 
 @Composable
-fun AppDetails(
+fun AppsDetails(
     app: App,
     modifier: Modifier = Modifier
 ) {
@@ -79,7 +78,7 @@ private fun Preview() {
 
         )
     VkEducationTheme {
-        AppDetails(
+        AppsDetails(
             app = app,
             modifier = Modifier.fillMaxWidth()
         )

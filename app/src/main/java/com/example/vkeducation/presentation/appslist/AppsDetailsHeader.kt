@@ -1,4 +1,4 @@
-package com.example.vkeducation.presentation
+package com.example.vkeducation.presentation.appslist
 
 
 import androidx.compose.foundation.clickable
@@ -32,7 +32,7 @@ import io.mmaltsev.vkeducation.ui.theme.VkEducationTheme
 
 
 @Composable
-fun AppDetailsHeader(
+fun AppsDetailsHeader(
     onLogoClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -95,7 +95,7 @@ fun AppDetailsHeader(
 @Composable
 private fun Preview() {
     VkEducationTheme {
-        AppDetailsHeader(
+        AppsDetailsHeader(
             onLogoClick = {},
             modifier = Modifier.fillMaxWidth()
         )
