@@ -37,7 +37,7 @@ import kotlinx.coroutines.flow.collectLatest
 fun AppsDetailsScreen(
     navController: NavHostController? = null,
     modifier: Modifier = Modifier,
-    viewModel: AppsDetailsViewModel = viewModel()
+    viewModel: AppsListViewModel = viewModel()
 ) {
     val state by viewModel.state.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
@@ -45,11 +45,11 @@ fun AppsDetailsScreen(
     LaunchedEffect(Unit) {
         viewModel.events.collectLatest { event ->
             when (event) {
-                is AppsDetailsEvent.ShowSnackbar -> {
+                is AppsListEvent.ShowSnackbar -> {
                     snackbarHostState.showSnackbar(event.message)
                 }
 
-                AppsDetailsEvent.UnderDevelopment -> {
+                AppsListEvent.UnderDevelopment -> {
                 }
             }
         }
@@ -79,7 +79,7 @@ fun AppsDetailsScreen(
 
 
             when (val currentState = state) {
-                is AppsDetailsState.Loading -> {
+                is AppsListState.Loading -> {
                     Box(
                         modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
@@ -88,7 +88,7 @@ fun AppsDetailsScreen(
                     }
                 }
 
-                is AppsDetailsState.Error -> {
+                is AppsListState.Error -> {
                     Box(
                         modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
@@ -100,7 +100,7 @@ fun AppsDetailsScreen(
                     }
                 }
 
-                is AppsDetailsState.Content -> {
+                is AppsListState.Content -> {
                     Column(
                         modifier = Modifier
                             .fillMaxSize()

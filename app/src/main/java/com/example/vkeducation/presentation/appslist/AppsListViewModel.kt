@@ -2,6 +2,7 @@ package com.example.vkeducation.presentation.appslist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.vkeducation.domain.appslist.App
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -10,11 +11,11 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import kotlin.time.Duration.Companion.seconds
 
-class AppsDetailsViewModel : ViewModel() {
-    private val _state = MutableStateFlow<AppsDetailsState>(AppsDetailsState.Loading)
+class AppsListViewModel : ViewModel() {
+    private val _state = MutableStateFlow<AppsListState>(AppsListState.Loading)
     val state = _state.asStateFlow()
 
-    private val _events = Channel<AppsDetailsEvent>(Channel.BUFFERED)
+    private val _events = Channel<AppsListEvent>(Channel.BUFFERED)
     val events = _events.receiveAsFlow()
 
     init {
@@ -23,22 +24,22 @@ class AppsDetailsViewModel : ViewModel() {
 
     fun loadApps() {
         viewModelScope.launch {
-            _state.value = AppsDetailsState.Loading
+            _state.value = AppsListState.Loading
 
             runCatching {
                 delay(2.seconds)
                 getMockApps()
             }.onSuccess { apps ->
-                _state.value = AppsDetailsState.Content(apps = apps)
+                _state.value = AppsListState.Content(apps = apps)
             }.onFailure {
-                _state.value = AppsDetailsState.Error
+                _state.value = AppsListState.Error
             }
         }
     }
 
     fun onLogoClick() {
         viewModelScope.launch {
-            _events.send(AppsDetailsEvent.ShowSnackbar("Приложение в разработке"))
+            _events.send(AppsListEvent.ShowSnackbar("Приложение в разработке"))
         }
     }
 
