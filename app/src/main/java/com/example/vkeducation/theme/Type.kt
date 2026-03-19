@@ -1,4 +1,4 @@
-package com.example.vkeducation.ui.theme
+package io.mmaltsev.vkeducation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

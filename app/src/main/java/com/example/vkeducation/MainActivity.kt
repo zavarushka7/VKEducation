@@ -5,43 +5,43 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.vkeducation.ui.theme.VKEducationTheme
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.vkeducation.presentation.AppDetailsScreen
+import com.example.vkeducation.presentation.AppRoute
+import io.mmaltsev.vkeducation.AppDetailsFullScreen
+import io.mmaltsev.vkeducation.ui.theme.VkEducationTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            VKEducationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+            VkEducationTheme {
+                val navController = rememberNavController()
+
+                NavHost(
+                    navController = navController,
+                    startDestination = AppRoute.AppsList.route
+                ) {
+                    composable(AppRoute.AppsList.route) {
+                        AppDetailsScreen(
+                            navController = navController,
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    }
+
+                    composable("app_details") {
+                        AppDetailsFullScreen(
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    }
                 }
+
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    VKEducationTheme {
-        Greeting("Android")
-    }
-}
