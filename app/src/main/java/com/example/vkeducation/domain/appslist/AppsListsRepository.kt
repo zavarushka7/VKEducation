@@ -1,4 +1,5 @@
 package com.example.vkeducation.domain.appslist
 
-class AppsListsRepository {
+interface AppsListsRepository {
+    fun get(id: String?): App
 }
