@@ -1,19 +1,22 @@
 package com.example.vkeducation.presentation.appslist
 
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.vkeducation.data.appslist.AppsListApi
-import com.example.vkeducation.data.appslist.AppsListMapper
-import com.example.vkeducation.data.appslist.AppsListRepositoryImpl
+import com.example.vkeducation.domain.appslist.AppsListRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
-class AppsListViewModel : ViewModel() {
-    private val repository = AppsListRepositoryImpl(AppsListMapper(), AppsListApi())
+@HiltViewModel
+class AppsListViewModel @Inject constructor(
+    private val repository: AppsListRepository
+) : ViewModel() {
     private val _state = MutableStateFlow<AppsListState>(AppsListState.Loading)
     val state = _state.asStateFlow()
 

@@ -1,4 +1,4 @@
-package io.mmaltsev.vkeducation.presentation.appdetails
+package com.example.vkeducation.presentation.appdetails
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -13,11 +13,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.vkeducation.presentation.appdetails.AppDetailsState
-import io.mmaltsev.vkeducation.domain.appdetails.AppDetails
-import io.mmaltsev.vkeducation.domain.appdetails.Category
+import com.example.vkeducation.domain.appdetails.AppDetails
+import com.example.vkeducation.domain.appdetails.Category
 
-import io.mmaltsev.vkeducation.ui.theme.VkEducationTheme
+import com.example.vkeducation.presentation.theme.VkEducationTheme
 
 @Composable
 fun AppDetailsContent(

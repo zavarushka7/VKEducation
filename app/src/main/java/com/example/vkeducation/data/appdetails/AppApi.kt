@@ -1,11 +1,14 @@
-package io.mmaltsev.vkeducation.data.appdetails
+package com.example.vkeducation.data.appdetails
 
-import io.mmaltsev.vkeducation.domain.appdetails.Category
+import com.example.vkeducation.domain.appdetails.Category
 import kotlinx.coroutines.delay
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlin.time.Duration.Companion.seconds
 
 // Представим, что этот класс ходит в сеть.
-class AppApi {
+@Singleton
+class AppApi @Inject constructor() {
     suspend fun get(): AppDetailsDto {
         // Эмулируем загрузку с бэкенда
         delay(2.seconds)

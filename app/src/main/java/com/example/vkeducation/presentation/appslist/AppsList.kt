@@ -25,7 +25,7 @@ import coil.compose.AsyncImage
 import com.example.vkeducation.domain.appslist.App
 import com.example.vkeducation.domain.appslist.Category
 
-import io.mmaltsev.vkeducation.ui.theme.VkEducationTheme
+import com.example.vkeducation.presentation.theme.VkEducationTheme
 
 
 @Composable

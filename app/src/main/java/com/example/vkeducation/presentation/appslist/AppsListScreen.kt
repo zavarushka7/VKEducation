@@ -29,7 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.flow.collectLatest
 
@@ -37,7 +37,7 @@ import kotlinx.coroutines.flow.collectLatest
 fun AppsDetailsScreen(
     navController: NavHostController? = null,
     modifier: Modifier = Modifier,
-    viewModel: AppsListViewModel = viewModel()
+    viewModel: AppsListViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
