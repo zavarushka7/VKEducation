@@ -1,6 +1,6 @@
-package io.mmaltsev.vkeducation.data.appdetails
+package com.example.vkeducation.data.appdetails
 
-import io.mmaltsev.vkeducation.domain.appdetails.Category
+import com.example.vkeducation.domain.appdetails.Category
 
 data class AppDetailsDto(
     val name: String,

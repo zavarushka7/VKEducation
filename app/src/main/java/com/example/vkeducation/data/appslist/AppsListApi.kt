@@ -2,8 +2,11 @@ package com.example.vkeducation.data.appslist
 
 import com.example.vkeducation.domain.appslist.Category
 import kotlinx.coroutines.delay
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class AppsListApi {
+@Singleton
+class AppsListApi @Inject constructor() {
     suspend fun get(): List<AppsListDto> {
         delay(2000)
         return listOf(

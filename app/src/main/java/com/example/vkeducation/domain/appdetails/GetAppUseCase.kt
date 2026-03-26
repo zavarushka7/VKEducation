@@ -1,6 +1,8 @@
-package io.mmaltsev.vkeducation.domain.appdetails
+package com.example.vkeducation.domain.appdetails
 
-class GetAppDetailsUseCase(
+import javax.inject.Inject
+
+class GetAppDetailsUseCase @Inject constructor(
     private val appDetailsRepository: AppDetailsRepository,
 ) {
     suspend operator fun invoke(): AppDetails {

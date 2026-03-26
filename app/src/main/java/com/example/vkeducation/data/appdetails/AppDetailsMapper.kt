@@ -1,8 +1,11 @@
-package io.mmaltsev.vkeducation.data.appdetails
+package com.example.vkeducation.data.appdetails
 
-import io.mmaltsev.vkeducation.domain.appdetails.AppDetails
+import com.example.vkeducation.domain.appdetails.AppDetails
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class AppDetailsMapper {
+@Singleton
+class AppDetailsMapper @Inject constructor() {
     fun toDomain(dto: AppDetailsDto): AppDetails = AppDetails(
         name = dto.name,
         developer = dto.developer,

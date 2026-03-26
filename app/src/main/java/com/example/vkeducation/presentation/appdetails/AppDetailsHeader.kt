@@ -1,4 +1,4 @@
-package io.mmaltsev.vkeducation.presentation.appdetails
+package com.example.vkeducation.presentation.appdetails
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -25,9 +25,9 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 
 import com.example.vkeducation.R
-import io.mmaltsev.vkeducation.domain.appdetails.AppDetails
-import io.mmaltsev.vkeducation.domain.appdetails.Category
-import io.mmaltsev.vkeducation.ui.theme.VkEducationTheme
+import com.example.vkeducation.domain.appdetails.AppDetails
+import com.example.vkeducation.domain.appdetails.Category
+import com.example.vkeducation.presentation.theme.VkEducationTheme
 
 import kotlin.math.roundToInt
 

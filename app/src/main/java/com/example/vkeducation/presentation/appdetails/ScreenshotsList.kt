@@ -1,4 +1,4 @@
-package io.mmaltsev.vkeducation.presentation.appdetails
+package com.example.vkeducation.presentation.appdetails
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.vkeducation.R
-import io.mmaltsev.vkeducation.ui.theme.VkEducationTheme
+import com.example.vkeducation.presentation.theme.VkEducationTheme
 
 
 @Composable

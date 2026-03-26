@@ -15,18 +15,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.vkeducation.R
-import io.mmaltsev.vkeducation.presentation.appdetails.AppDetailsContent
-import io.mmaltsev.vkeducation.presentation.appdetails.AppDetailsError
-import io.mmaltsev.vkeducation.presentation.appdetails.AppDetailsEvent
-import io.mmaltsev.vkeducation.presentation.appdetails.AppDetailsLoading
-import io.mmaltsev.vkeducation.presentation.appdetails.AppDetailsViewModel
 import kotlinx.coroutines.flow.Flow
 
 @Composable
 fun AppDetailsScreen() {
-    val viewModel = viewModel<AppDetailsViewModel>()
+    val viewModel = hiltViewModel<AppDetailsViewModel>()
     val state by viewModel.state.collectAsState()
     val events = viewModel.events
 

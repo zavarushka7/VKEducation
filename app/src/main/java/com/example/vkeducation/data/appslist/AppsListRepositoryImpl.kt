@@ -2,8 +2,11 @@ package com.example.vkeducation.data.appslist
 
 import com.example.vkeducation.domain.appslist.App
 import com.example.vkeducation.domain.appslist.AppsListRepository
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class AppsListRepositoryImpl(
+@Singleton
+class AppsListRepositoryImpl @Inject constructor(
     private val mapper: AppsListMapper,
     private val api: AppsListApi
 ) : AppsListRepository {

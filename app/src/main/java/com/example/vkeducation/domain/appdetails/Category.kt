@@ -1,4 +1,4 @@
-package io.mmaltsev.vkeducation.domain.appdetails
+package com.example.vkeducation.domain.appdetails
 
 enum class Category {
     APP, GAME
