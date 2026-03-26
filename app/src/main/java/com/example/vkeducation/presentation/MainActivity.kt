@@ -1,4 +1,4 @@
-package com.example.vkeducation
+package com.example.vkeducation.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,10 +9,10 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.vkeducation.presentation.AppDetailsScreen
-import com.example.vkeducation.presentation.AppRoute
-import io.mmaltsev.vkeducation.AppDetailsFullScreen
+import com.example.vkeducation.presentation.appslist.AppsRoute
 import io.mmaltsev.vkeducation.ui.theme.VkEducationTheme
+import com.example.vkeducation.presentation.appslist.AppsDetailsScreen
+import com.example.vkeducation.presentation.appdetails.AppDetailsScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,19 +24,17 @@ class MainActivity : ComponentActivity() {
 
                 NavHost(
                     navController = navController,
-                    startDestination = AppRoute.AppsList.route
+                    startDestination = AppsRoute.AppsList.route
                 ) {
-                    composable(AppRoute.AppsList.route) {
-                        AppDetailsScreen(
+                    composable(AppsRoute.AppsList.route) {
+                        AppsDetailsScreen(
                             navController = navController,
-                            modifier = Modifier.fillMaxSize()
+                            modifier = Modifier.Companion.fillMaxSize()
                         )
                     }
 
                     composable("app_details") {
-                        AppDetailsFullScreen(
-                            modifier = Modifier.fillMaxSize()
-                        )
+                        AppDetailsScreen()
                     }
                 }
 

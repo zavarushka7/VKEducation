@@ -1,4 +1,4 @@
-package com.example.vkeducation.presentation  // Важно: файл должен быть в пакете presentation
+package com.example.vkeducation.presentation.appslist
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -31,14 +31,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.example.vkeducation.AppDetails
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
-fun AppDetailsScreen(
+fun AppsDetailsScreen(
     navController: NavHostController? = null,
     modifier: Modifier = Modifier,
-    viewModel: AppDetailsViewModel = viewModel()
+    viewModel: AppsListViewModel = viewModel()
 ) {
     val state by viewModel.state.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
@@ -46,11 +45,11 @@ fun AppDetailsScreen(
     LaunchedEffect(Unit) {
         viewModel.events.collectLatest { event ->
             when (event) {
-                is AppDetailsEvent.ShowSnackbar -> {
+                is AppsListEvent.ShowSnackbar -> {
                     snackbarHostState.showSnackbar(event.message)
                 }
 
-                AppDetailsEvent.UnderDevelopment -> {
+                AppsListEvent.UnderDevelopment -> {
                 }
             }
         }
@@ -73,14 +72,14 @@ fun AppDetailsScreen(
             )
 
 
-            AppDetailsHeader(
+            AppsDetailsHeader(
                 onLogoClick = { viewModel.onLogoClick() },
                 modifier = Modifier.fillMaxWidth()
             )
 
 
             when (val currentState = state) {
-                is AppDetailsState.Loading -> {
+                is AppsListState.Loading -> {
                     Box(
                         modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
@@ -89,7 +88,7 @@ fun AppDetailsScreen(
                     }
                 }
 
-                is AppDetailsState.Error -> {
+                is AppsListState.Error -> {
                     Box(
                         modifier = Modifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
@@ -101,7 +100,7 @@ fun AppDetailsScreen(
                     }
                 }
 
-                is AppDetailsState.Content -> {
+                is AppsListState.Content -> {
                     Column(
                         modifier = Modifier
                             .fillMaxSize()
@@ -115,7 +114,7 @@ fun AppDetailsScreen(
                             verticalArrangement = Arrangement.spacedBy(32.dp)
                         ) {
                             items(currentState.apps) { app ->
-                                AppDetails(
+                                AppsDetails(
                                     app = app,
                                     modifier = Modifier
                                         .fillMaxWidth()

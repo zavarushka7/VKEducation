@@ -1,4 +1,4 @@
-package io.mmaltsev.vkeducation
+package io.mmaltsev.vkeducation.presentation.appdetails
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

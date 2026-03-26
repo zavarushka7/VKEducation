@@ -1,6 +1,6 @@
-package io.mmaltsev.vkeducation
+package io.mmaltsev.vkeducation.domain.appdetails
 
-data class App(
+data class AppDetails(
     val name: String,
     val developer: String,
     val category: Category,
